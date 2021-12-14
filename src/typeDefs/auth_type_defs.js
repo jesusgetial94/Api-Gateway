@@ -24,9 +24,10 @@ const authTypeDefs = gql `
     type UserDetail {
         id: Int!
         username: String!
-        password: String!
         name: String!
-        email: String!
+        identification:Int!
+        phone:Int!
+        email:String!
     }
     type Mutation {
         signUpUser(userInput :SignUpInput): Tokens!

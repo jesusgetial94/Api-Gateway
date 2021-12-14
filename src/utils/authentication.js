@@ -4,6 +4,7 @@ const fetch             = require('node-fetch');
 
 const authentication    = async ({ req }) => {
     const token = req.headers.authorization || '';
+    //token = token.replace("Bearer ", "");
     /*console.log();
     console.log(JSON.stringify({ "token": token.slice(7,token.length) }));
     console.log( `${serverConfig.auth_api_url}/user/verifyToken/`)
@@ -12,22 +13,20 @@ const authentication    = async ({ req }) => {
     if (token == '')
         return { userIdToken: null }
     else {
-        console.log("Entro en else");
         try {
             
             let requestOptions = {
                 method: 'POST', headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(token), redirect: 'follow'
+                body: JSON.stringify({"token": token}), redirect: 'follow'
             };
             let response = await fetch(
-                `${serverConfig.auth_api_url}/verifyToken/`,
+                `${serverConfig.auth_api_url}/user/verifyToken/`,
                 requestOptions)
-
             if (response.status != 200) {
                 console.log(response)
                 throw new ApolloError(`SESION INACTIVA - ${401}` + response.status, 401)
             }
-
+            
             return { userIdToken: (await response.json()).UserId };
             /*
             let requestOptions = {

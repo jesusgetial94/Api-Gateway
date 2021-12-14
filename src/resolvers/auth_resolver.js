@@ -26,6 +26,17 @@ const usersResolver = {
         }
         return await dataSources.authAPI.createUser(authInput);
     },
+    signUpSuperUser: async(_, { userInput }, { dataSources }) => {
+        const authInput = {
+            username: userInput.username,
+            password: userInput.password,
+            name: userInput.name,
+            identification: userInput.identification,
+            phone: userInput.phone,
+            email: userInput.email,
+        }
+        return await dataSources.authAPI.createSpUser(authInput);
+    },
     logIn: (_, { credentials }, { dataSources }) =>
         dataSources.authAPI.authRequest(credentials),
     refreshToken: (_, { refresh }, { dataSources }) =>

@@ -2,7 +2,8 @@ const { ApolloServer } = require('apollo-server');
 const typeDefs = require('./typeDefs');
 const resolvers = require('./resolvers');
 const AuthAPI = require('./dataSources/auth_api');
-const RoomAPI = require('./dataSources/room_api')
+const RoomAPI = require('./dataSources/room_api');
+const ReservaAPI = require('./dataSources/reserva_api');
 const authentication = require('./utils/authentication');
 //mport authentication from "./utils/authentication.js";
 
@@ -13,6 +14,7 @@ const server = new ApolloServer({
     dataSources: () => ({
         roomAPI: new RoomAPI(),
         authAPI: new AuthAPI(),
+        reservaAPI: new ReservaAPI(),
     }),
     introspection: true,
     playground: true

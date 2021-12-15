@@ -1,0 +1,19 @@
+{
+  "name": "hotelapigateway",
+  "version": "1.0.0",
+  "description": "this is an API Gateway  to handle requests from hotel clients",
+  "main": "src/index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "G3-P65",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-datasource-rest": "^3.1.1",
+    "apollo-server": "^3.1.2",
+    "graphql": "^16.0.1",
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.1"
+  }
+}

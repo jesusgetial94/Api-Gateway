@@ -1,6 +1,6 @@
 const { gql } = require('apollo-server');
 //const {BigInt} = require('apollo-type-bigint')
-const roomTypeDefs = gql `
+const roomTypeDefs = gql`
 
     input RoomInput {
         codigo: String!
@@ -15,7 +15,7 @@ const roomTypeDefs = gql `
         disponibilidad: Boolean!
         precio: Int!
     }
-    input RoomOnDelete {
+    input RoomOnUpdate {
         codigo: String
         descripcion: String
         disponibilidad: Boolean
@@ -34,7 +34,7 @@ const roomTypeDefs = gql `
     type Mutation {
         roomCreate(userInput :RoomInput, userId: Int!): Room!       
         roomDelete(userId: Int!, roomId: Int!): Response!
-        roomUpdate(userId: Int!, roomId: Int!, roomData: RoomOnDelete!): Response!
+        roomUpdate(userId: Int!, roomId: Int!, roomData: RoomOnUpdate!): Room!
     }
     type Query {
         roomAllDetail(userId: Int!): [RoomOnDetail]

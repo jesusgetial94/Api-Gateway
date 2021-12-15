@@ -15,7 +15,7 @@ const roomTypeDefs = gql `
         disponibilidad: Boolean!
         precio: Int!
     }
-    input RoomOnDelete {
+    input RoomOnUpdate {
         codigo: String
         descripcion: String
         disponibilidad: Boolean
@@ -34,7 +34,7 @@ const roomTypeDefs = gql `
     type Mutation {
         roomCreate(userInput :RoomInput, userId: Int!): Room!       
         roomDelete(userId: Int!, roomId: Int!): Response!
-        roomUpdate(userId: Int!, roomId: Int!, roomData: RoomOnDelete!): Response!
+        roomUpdate(roomData: RoomOnUpdate!, userId: Int!, roomId: Int!): Room!
     }
     type Query {
         roomAllDetail(userId: Int!): [RoomOnDetail]

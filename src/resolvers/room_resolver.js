@@ -23,7 +23,7 @@ const roomsResolver = {
         roomDelete: async(_,{ userId, roomId}, { dataSources}) => {
             return await dataSources.roomAPI.deleteRoom(userId, roomId);
         },
-        roomUpdate: async(_,{ userId, roomId, roomData}, { dataSources}) => {
+        roomUpdate: async(_,{roomData, userId, roomId}, { dataSources}) => {
             const roomInput = {
                 codigo: roomData.codigo,
                 descripcion: roomData.descripcion,

@@ -3,7 +3,7 @@ const typeDefs = require('./typeDefs');
 const resolvers = require('./resolvers');
 const AuthAPI = require('./dataSources/auth_api');
 const RoomAPI = require('./dataSources/room_api');
-const ReservaAPI = require('./dataSources/reserva_api');
+const ReservaAPI = require('./dataSources/reservation_api');
 const authentication = require('./utils/authentication');
 //mport authentication from "./utils/authentication.js";
 

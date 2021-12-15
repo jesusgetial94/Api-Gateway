@@ -19,7 +19,10 @@ class RoomAPI extends RESTDataSource {
         return await this.get(`habitacion/remove/${userId}/${roomId}/`)
     }
     async updateRoom(userId, roomId, roomInput){
-        return await this.get(`habitacion/update/${userId}/${roomId}/`,roomInput)
+        console.log(`habitacion/update/${userId}/${roomId}/`);
+        console.log(roomInput);
+        roomInput = new Object(JSON.parse(JSON.stringify(roomInput)));
+        return await this.patch(`habitacion/update/${userId}/${roomId}/`,roomInput)
     }
 }
 module.exports = RoomAPI;
